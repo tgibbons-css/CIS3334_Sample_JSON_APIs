@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
     TextView textViewFact;
     Button buttonGetFact;
 
-    private RequestQueue mRequestQueue;
+    // ---- Remember to use Volley web library add the following to the Module build.gradle file, see https://developer.android.com/training/volley
+    //      implementation 'com.android.volley:volley:1.1.1'
+    private RequestQueue mRequestQueue;         // Used by Volley to do HTTP request
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getCatFact() {
+        // Define URL to use. Using Cat Facts API here. Note number of facts set to 1
+        // ---- Remember to add the following permission to the AndroidManifest.xml file
+        //      <uses-permission android:name="android.permission.INTERNET" />
         String url = "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1";
+        // Create a Volley web request to receive back a JSON object.
+        // This requires two listeners for Async response, onResponse() and onErrorResponse()
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -45,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
                     {
                         textViewStatus.setText("Received Response ");
                         String jsonFact= response.toString();
+                        // Remember to add the following to the module build.gradle file for the gson library for parsing json files
+                        // implementation 'com.google.code.gson:gson:2.8.6'
                         Gson gson = new Gson();
                         Fact fact = gson.fromJson(jsonFact, Fact.class);
                         textViewFact.setText(fact.getText());
@@ -55,11 +64,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         // TODO: Handle error
                         textViewStatus.setText("ERROR Response: " + error.toString());
-
                     }
                 });
 
-        //RequestQueue initialized
+        // Create a RequestQueue used to send web requests using Volley
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(jsonObjectRequest);
     }
