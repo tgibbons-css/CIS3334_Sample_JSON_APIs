@@ -10,49 +10,67 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Cat Facts"
+        android:text="Sample JSON APIs"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewFact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Fact 1: "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <Button
         android:id="@+id/buttonGetFact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Get Fact"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFact"
+        android:text="Get Cat Fact"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:layout_editor_absoluteX="16dp" />
 
     <TextView
         android:id="@+id/textViewStatus"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:layout_editor_absoluteX="91dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="36dp"
         android:text="Status: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGetFact" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonStudentAPI" />
+
+    <Button
+        android:id="@+id/buttonCurrency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" USD to EUR"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGetFact"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/buttonWeather"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Current Weather"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCurrency"
+        tools:layout_editor_absoluteX="115dp" />
+
+    <Button
+        android:id="@+id/buttonSpaceNews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Space News"
+        app:layout_constraintTop_toBottomOf="@+id/buttonWeather"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/buttonStudentAPI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student Added API"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSpaceNews"
+        tools:layout_editor_absoluteX="120dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package css.catfacts;
+package css.sampleAPIs;
 
 import org.junit.Test;
 

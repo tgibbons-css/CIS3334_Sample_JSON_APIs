@@ -1,4 +1,4 @@
-package css.catfacts;
+package css.sampleAPIs;
 
 /**
  * This class is used to store Cat Fact data from the following site:
@@ -7,7 +7,7 @@ package css.catfacts;
  * @author kglesener
  */
 
-public class Fact
+public class CatFact
 {
     // Instance variables are public so GSON can store the values
     // directly in them.
@@ -20,7 +20,7 @@ public class Fact
     public String source;
     public boolean used;
 
-    public Fact()
+    public CatFact()
     {
         _id = "0";
         __v = 0;

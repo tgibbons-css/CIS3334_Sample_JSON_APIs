@@ -1,4 +1,4 @@
-package css.catfacts;
+package css.sampleAPIs;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("css.catfacts", appContext.getPackageName());
+        assertEquals("css.sampleAPIs", appContext.getPackageName());
     }
 }

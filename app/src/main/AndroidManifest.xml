@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="css.catfacts">
+    package="css.sampleAPIs">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CatFactsSimple">
-        <activity android:name=".MainActivity">
+        <activity android:name="css.sampleAPIs.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
