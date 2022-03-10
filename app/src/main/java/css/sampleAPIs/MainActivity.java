@@ -138,7 +138,8 @@ public class MainActivity extends AppCompatActivity {
     // https://spaceflightnewsapi.net/
     // https://test.spaceflightnewsapi.net/api/v2/articles
     private void getSpaceNews() {
-        String url = "https://test.spaceflightnewsapi.net/api/v2/articles";
+        //String url = "https://test.spaceflightnewsapi.net/api/v2/articles";
+        String url = "https://api.spaceflightnewsapi.net/v3/articles";
         JsonArrayRequest jsonArrayRequest  = new JsonArrayRequest (Request.Method.GET, url,null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -237,8 +238,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("CIS 3334", "getSpaceNews onClick");
-                //getSpaceNews();
-                getNhlPlayer();
+                getSpaceNews();
+
             }
         });
     }
@@ -249,7 +250,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("CIS 3334", "getStudentAPI onClick");
-                getStudentAPI();
+                //getStudentAPI();
+                getNhlPlayer();
             }
         });
     }
