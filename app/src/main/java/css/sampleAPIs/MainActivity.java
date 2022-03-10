@@ -87,14 +87,15 @@ public class MainActivity extends AppCompatActivity {
     // https://ratesapi.io/documentation/
     // https://api.ratesapi.io/api/latest?base=USD&symbols=EUR
     private void getCurrency() {
-        String url = "https://api.ratesapi.io/api/latest?base=USD&symbols=EUR";
+        //String url = "https://api.ratesapi.io/api/latest?base=USD&symbols=EUR";
+        String url = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd/eur.json";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response)
                     {
                         Gson gson = new Gson();
-                        CurrencyRate obj = gson.fromJson(response.toString(), CurrencyRate.class);
+                        CurrencyRate2 obj = gson.fromJson(response.toString(), CurrencyRate2.class);
                         textViewStatus.setText(obj.toString());
                     }
                 },
@@ -168,6 +169,36 @@ public class MainActivity extends AppCompatActivity {
         queue.add(jsonArrayRequest);
     }
 
+    // get NHL Player info
+    // https://github.com/dword4/nhlapi
+    // https://statsapi.web.nhl.com/api/v1/people/8476437/
+    private void getNhlPlayer() {
+        String url = "https://statsapi.web.nhl.com/api/v1/people/8476437/";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("CIS 3334", "In getNhlPlayer -- Number retrieved = "+ response.length());
+
+                        Gson gson = new Gson();
+                        NhlPlayer obj = gson.fromJson(response.toString(), NhlPlayer.class);
+                        String name = obj.people.get(0).fullName;
+                        textViewStatus.setText(name);
+
+                     }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("CIS 3334", "In getSpaceNews -- onErrorResponse = "+error);
+
+                    }
+                });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(jsonObjectRequest);
+    }
+
     private void setupButtonCatFact() {
         buttonGetFact = findViewById(R.id.buttonGetFact);
         buttonGetFact.setOnClickListener(new View.OnClickListener() {
@@ -206,7 +237,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("CIS 3334", "getSpaceNews onClick");
-                getSpaceNews();
+                //getSpaceNews();
+                getNhlPlayer();
             }
         });
     }

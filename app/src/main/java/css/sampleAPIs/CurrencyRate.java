@@ -7,6 +7,7 @@ import java.util.Map;
 // https://ratesapi.io/documentation/
 // https://api.ratesapi.io/api/latest?base=USD&symbols=EUR
 // {"base":"USD","rates":{"EUR":0.8407600471},"date":"2021-03-09"}
+
 public class CurrencyRate {
 
     private String base;
@@ -22,4 +23,7 @@ public class CurrencyRate {
         return "CurrencyRate = " + rates.get("EUR");
     }
 }
+
+
+
 
